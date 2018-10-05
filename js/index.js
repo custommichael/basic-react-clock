@@ -1,7 +1,12 @@
-function clockTick() {
-	var element =	React.createElement('div', null,
-	React.createElement('h2', null, new Date().toLocaleTimeString()));
+
+// function component method
+function Clock(props) {
+	return React.createElement("h1", null, "Hello, ", props.name, " it's ",  new Date().toLocaleTimeString() );
+}
+
+function renderClockComponent(){
+	var element = React.createElement(Clock, { name: "MG" });
 	ReactDOM.render(element, document.getElementById('root'));
 }
-setInterval(clockTick, 1000);
 
+setInterval(renderClockComponent, 1000);
