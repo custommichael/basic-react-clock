@@ -1,12 +1,23 @@
+class Clock extends React.Component {
+	constructor(props){
+		super(props);
+	}
 
-// function component method
-function Clock(props) {
-	return React.createElement("h1", null, "Hello, ", props.name, " it's ",  new Date().toLocaleTimeString() );
+	render() {
+		return (
+			<div>
+				<h1>
+					Using a component with props, it is {this.props.ts}
+				</h1>
+			</div>
+		);
+	}
 }
 
-function renderClockComponent(){
-	var element = React.createElement(Clock, { name: "MG" });
+function clockTick(){
+	const timestamp  = ( new Date().toLocaleTimeString() );
+	var element = React.createElement(Clock, { ts: timestamp });
 	ReactDOM.render(element, document.getElementById('root'));
 }
 
-setInterval(renderClockComponent, 1000);
+setInterval(clockTick, 1000);
